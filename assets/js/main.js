@@ -5,7 +5,7 @@
 var screen_width = window.screen.width;
 
  // Active GSAP
-if (document.querySelector("#smooth-animate").classList.contains("smooth-scrool-animate")) {
+if (typeof ScrollSmoother !== "undefined" && document.querySelector("#smooth-animate")?.classList.contains("smooth-scrool-animate")) {
   const smoother = ScrollSmoother.create({
       effects: screen_width < 1025 ? false : true,
       smooth: 1.35,
@@ -16,13 +16,18 @@ if (document.querySelector("#smooth-animate").classList.contains("smooth-scrool-
 }
 
 var mySwiper = new Swiper('.swiper__container', {
-  freeMode: true,
-  slidesPerView: 'auto',
-  spaceBetween: 60,
+  freeMode: false,
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  spaceBetween: 24,
+  breakpoints: {
+    768: { slidesPerView: 'auto', spaceBetween: 40 },
+    1200: { slidesPerView: 'auto', spaceBetween: 60 }
+  },
   scrollbar: {
     el: '.js-swiper-scrollbar',
     draggable: true,
-    snapOnRelease: false
+    snapOnRelease: true
   }
 });
 
@@ -249,7 +254,7 @@ testimonial-carousel 2
     }
 
 	// Mobile Menu Js
-	$("#main-menu").meanmenu({
+	if (typeof $.fn.meanmenu === "function") $("#main-menu").meanmenu({
 		meanMenuContainer: "#mobile-navbar-menu",
 		meanScreenWidth: "10000",
 		meanExpand: ['<i class="fal fa-plus"></i>'],

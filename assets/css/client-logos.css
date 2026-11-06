@@ -1,0 +1,175 @@
+/* Mobile client cards: show the full collection and every complete logo. */
+@media (max-width: 767px) {
+  .client-area-3 .clients-swiper,
+  .client-area-3 .clients-list {
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+  }
+  .client-area-3 .clients-swiper .swiper-wrapper,
+  .client-area-3 .clients-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    height: auto;
+    transform: none;
+    margin: 0;
+  }
+  .client-area-3 .single-client,
+  .client-area-3 .clients-swiper .single-client,
+  .client-area-3 .clients-list .single-client {
+    width: 100%;
+    max-width: none;
+    height: 160px;
+    aspect-ratio: auto;
+    margin: 0;
+    flex: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .client-area-3 .single-client::before {
+    display: none;
+  }
+  .client-area-3 .single-client-inner {
+    height: 100%;
+    width: 100%;
+  }
+  .client-area-3 .single-client-block {
+    position: static;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    gap: 4px;
+  }
+  .client-area-3 .single-client-number {
+    position: static;
+    margin: 0;
+    flex: 0 0 24px;
+  }
+  .client-area-3 .single-client-number span {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+  .client-area-3 .single-client-img {
+    position: static;
+    width: 100%;
+    height: 0;
+    min-height: 0;
+    flex: 1;
+    padding: 0;
+    background: #fff;
+  }
+  .client-area-3 .single-client-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0;
+  }
+}
+
+/* Restore the homepage's horizontal hexagon collection on larger screens. */
+@media (min-width: 768px) {
+  .client-area-3 .clients-swiper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: #875a7c #333;
+    scrollbar-width: thin;
+  }
+  .client-area-3 .clients-swiper .swiper-wrapper {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    transform: none;
+  }
+  .client-area-3 .clients-swiper .single-client {
+    width: 196px;
+    max-width: 196px;
+    height: 219px;
+    flex: 0 0 196px;
+    margin: 0;
+    scroll-snap-align: start;
+  }
+}
+
+/* Homepage featured clients: six full-size hexagons, as in the reference. */
+@media (min-width: 768px) {
+  .client-area-3 .clients-swiper {
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .client-area-3 .clients-swiper .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 4px;
+    width: 100%;
+  }
+  .client-area-3 .clients-swiper .single-client {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 196 / 219;
+    flex: none;
+  }
+  .client-area-3 .clients-swiper .single-client-img {
+    top: 37%;
+    left: 0;
+    width: 100%;
+    height: 63%;
+    padding: 8px 10px 22px;
+  }
+  .client-area-3 .clients-swiper .single-client-number {
+    top: 11%;
+  }
+  .client-area-3 .clients-swiper .single-client-number span {
+    width: clamp(28px, 3.2vw, 42px);
+    height: clamp(28px, 3.2vw, 42px);
+  }
+}
+
+/* About clients: large white logo panels inside the reference hexagons. */
+@media (min-width: 768px) {
+  .about-client-logos .clients-list {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .client-area-3.about-client-logos .clients-list .single-client {
+    width: calc((100% - 96px) / 5);
+    height: auto;
+    flex: 0 0 calc((100% - 96px) / 5);
+    aspect-ratio: 196 / 219;
+    margin: 0;
+  }
+  .about-client-logos .single-client-img {
+    top: 37%;
+    left: 0;
+    width: 100%;
+    height: 63%;
+    padding: 8px 10px 22px;
+  }
+  .about-client-logos .single-client-number {
+    top: 11%;
+  }
+  .about-client-logos .single-client-img img {
+    display: block;
+    object-fit: contain;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .client-area-3.about-client-logos .clients-list .single-client {
+    width: calc((100% - 48px) / 3);
+    flex-basis: calc((100% - 48px) / 3);
+  }
+}

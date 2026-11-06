@@ -21,10 +21,6 @@
   <title>Media Production &amp; Creative Services | iFILMS Media</title>
 
   <!-- Place favicon.ico in the root directory -->
-  <link rel="icon" href="favicon.ico?v=2" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png?v=2">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/fav-icon.png?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png?v=2">
 
   <!-- CSS here -->
   <link rel="stylesheet" href="assets/css/animate.min.css">
@@ -40,8 +36,12 @@
   <link rel="stylesheet" href="assets/css/slick.css">
   <!-- slick-theme css -->
   <link rel="stylesheet" href="assets/css/slick-theme.css">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css?v=20261106-team1">
 
+  <script defer src="assets/js/navigation.js?v=1"></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64 128x128 256x256">
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" sizes="180x180">
 </head>
 
 <body>
@@ -124,44 +124,47 @@
 
   <div class="mainmenu d-none">
     <nav id="main-menu">
-      <ul class="list-none">
-        <li>
-          <a href="index.html" title="Media Production Company in Pune | iFILMS Media">Home</a>
-        </li>
-        <li class="has-dropdown">
-          <a href="services.html" title="Media Production &amp; Creative Services | iFILMS Media">Our Services</a>
-          <ul class="sub-menu">
-            <!-- 1. Media Production -->
-            <li><a href="production.html" title="Video &amp; Film Production Company in Pune | iFILMS Media">Media Production</a></li>
+                      <ul class="list-none">
+                        <li>
+                          <a href="index.html" title="Media Production Company in Pune | iFILMS Media">Home</a>
+                        </li>
+                        <li>
+                          <a href="about.html" title="About Us – Creative Production Agency | iFILMS Media">About</a>
+                        </li>
+                        <li>
+                          <a href="portfolio.html" title="Film Production &amp; Event Portfolio | iFILMS Media">Portfolio</a>
+                        </li>
+                        <li class="has-dropdown">
+                          <a href="services.html" title="Media Production &amp; Creative Services | iFILMS Media">Our Services</a>
+                          <ul class="sub-menu">
+                            <!-- 1. Media Production -->
+                            <li><a href="production.html" title="Video &amp; Film Production Company in Pune | iFILMS Media">Media Production</a></li>
 
-            <!-- 2. Advertising & Branding -->
-            <li><a href="advertising.html" title="Advertising &amp; Branding Agency in Pune | iFILMS Media">Advertising & Branding</a></li>
+                            <!-- 2. Advertising & Branding -->
+                            <li><a href="advertising.html" title="Advertising &amp; Branding Agency in Pune | iFILMS Media">Advertising & Branding</a></li>
 
-            <!-- 3. Digital Marketing -->
-            <li><a href="digital-marketing.html" title="Digital Marketing Agency in Pune | iFILMS Media">Digital Marketing</a></li>
+                            <!-- 3. Digital Marketing -->
+                            <li><a href="digital-marketing.html" title="Digital Marketing Agency in Pune | iFILMS Media">Digital Marketing</a></li>
 
-            <!-- 4. Social Media Management -->
-            <li><a href="social-media.html" title="Social Media Management Company in Pune | iFILMS Media">Social Media Management</a></li>
+                            <!-- 4. Social Media Management -->
+                            <li><a href="social-media.html" title="Social Media Management Company in Pune | iFILMS Media">Social Media Management</a></li>
 
-            <!-- 5. Corporate Events -->
-            <li><a href="corporate.html" title="Corporate Event Management in Pune | iFILMS Media">Corporate Events</a></li>
+                            <!-- 5. Corporate Events -->
+                            <li><a href="corporate.html" title="Corporate Event Management in Pune | iFILMS Media">Corporate Events</a></li>
 
-            <!-- 6. Celebrity Talent Management -->
-            <li><a href="celebrity.html" title="Celebrity &amp; Talent Management Agency | iFILMS Media">Celebrity Talent Management</a></li>
+                            <!-- 6. Celebrity Talent Management -->
+                            <li><a href="celebrity.html" title="Celebrity &amp; Talent Management Agency | iFILMS Media">Celebrity Talent Management</a></li>
 
-            <!-- 7. Other Services -->
-            <li><a href="other.html" title="3D Visualization &amp; Creative Services | iFILMS Media">Other Services</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown">
-          <a href="portfolio.html" title="Film Production &amp; Event Portfolio | iFILMS Media">Portfolio</a>
-        </li>
-        <li>
-          <a href="services.html" title="Media Production &amp; Creative Services | iFILMS Media">Our Services</a>
-        </li>
-        <li><a href="contact.html" title="Contact iFILMS Media | Creative Agency in Pune">Contact</a></li>
-      </ul>
-    </nav>
+                            <!-- 7. Other Services -->
+                            <li><a href="other.html" title="3D Visualization &amp; Creative Services | iFILMS Media">Other Services</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="career.html" title="Media Production &amp; Creative Careers | iFILMS Media">Careers</a>
+                        </li>
+                      <li><a href="contact.html">Contact</a></li>
+</ul>
+                    </nav>
   </div>
 
   <div class="smooth-scrool-animate" id="smooth-animate"></div>
@@ -648,7 +651,7 @@
       <script src="assets/js/slick.min.js"></script>
       <script src="assets/js/swiper-bundle.min.js"></script>
       <script src="assets/js/plugins.js"></script>
-      <script src="assets/js/main.js"></script>  
+      <script src="assets/js/main.js?v=20261106-nav1"></script>  
    
 
   <script>
@@ -678,6 +681,7 @@
       arrowX += (mouseX - arrowX) * 0.16; // smooth follow
       arrowY += (mouseY - arrowY) * 0.16;
 
+      if (!arrow) return;
       arrow.style.left = `${arrowX}px`;
       arrow.style.top = `${arrowY}px`;
 

@@ -2170,7 +2170,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .balloon-border {
   position: absolute;
   top: -40px;
-  right: 100px;
+  right: calc(50% - 85px);
   width: 192px;
   height: 192px;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -4771,12 +4771,16 @@ Portfolio Area 3 CSS
 .single-portfolio .portfolio-number {
   font-family: var(--vw-ff-heading);
   font-weight: 700;
-  font-size: 150px;
+  font-size: clamp(32px, 6vw, 90px);
+  line-height: 1;
   -webkit-text-stroke: 1px #ffffff;
   -webkit-text-fill-color: transparent;
   position: absolute;
-  top: 40px;
-  right: 0;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  pointer-events: none;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   opacity: 0;
@@ -4794,7 +4798,7 @@ Portfolio Area 3 CSS
 }
 
 .single-portfolio:hover .portfolio-number {
-  right: 40px;
+  right: 0;
   opacity: 1;
   visibility: visible;
 }
@@ -7448,7 +7452,11 @@ only screen and (min-width: 576px) and (max-width: 767px),
 }
 
 .testimonial_slider .swiper-slide {
-  width: 370px !important;
+  width: 370px;
+  max-width: 100%;
+  height: auto;
+  padding-inline: 8px;
+  box-sizing: border-box;
 }
 
 .testimonial_slider .swiper-scrollbar-drag {
@@ -7476,6 +7484,7 @@ only screen and (min-width: 576px) and (max-width: 767px),
 }
 
 .testimonial_slider .testimonial-text {
+  overflow-wrap: anywhere;
   padding-top: 10px;
 }
 
@@ -7514,7 +7523,7 @@ only screen and (min-width: 576px) and (max-width: 767px),
   justify-content: center;
   border-radius: 50%;
   top: 16px;
-  right: 100px;
+  right: calc(50% - 85px);
 
 }
 
@@ -9135,4 +9144,163 @@ body.use-default-cursor * {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* Pack portfolio photos into aligned columns at their natural aspect ratio. */
+.portfolio-photo-grid {
+  display: block;
+  position: relative;
+  margin: 0;
+}
+.portfolio-photo-grid > .col-md-6 {
+  position: absolute;
+  padding: 0;
+}
+.portfolios-area-3 .portfolio-photo-grid > .col-md-6 .single-portfolio {
+  margin: 0;
+}
+.portfolio-photo-grid .single-portoflio-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Keep every client logo inside the safe center of its hexagonal card. */
+.client-area-3 .single-client {
+  width: 196px;
+  height: auto;
+  aspect-ratio: 196 / 219;
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+.client-area-3 .single-client-block {
+  position: absolute;
+  inset: 0;
+}
+.client-area-3 .single-client-number {
+  position: absolute;
+  top: 22%;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+.client-area-3 .single-client-img {
+  position: absolute;
+  top: 48%;
+  left: 22%;
+  width: 56%;
+  height: 26%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 4px;
+}
+.client-area-3 .single-client-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* The homepage client collection is a responsive grid, with every logo visible. */
+.clients-swiper .swiper-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+.client-area-3 .clients-swiper .single-client {
+  width: 100%;
+  max-width: 196px;
+  justify-self: center;
+}
+@media (max-width: 767px) {
+  .client-area-3 .clients-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .client-area-3 .clients-list .single-client {
+    width: 100%;
+    max-width: 196px;
+    justify-self: center;
+  }
+  .clients-swiper .swiper-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .client-area-3 .single-client-number span {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Show one complete review per swipe on phones, with room for italic glyphs. */
+@media (max-width: 767px) {
+  .testimonial_slider .swiper-slide {
+    padding-inline: 24px;
+  }
+  .testimonial_slider .testimonial-desc {
+    min-width: 0;
+  }
+  .testimonial_slider .testimonial-text p {
+    font-size: 16px;
+    line-height: 1.65;
+    text-align: justify;
+    text-align-last: left;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
+  }
+  .testimonial_slider .testimonial-bio h5 {
+    line-height: 1.5;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Loading and decorative layers must never intercept navigation clicks. */
+.preloader,
+#magic-cursor,
+.custom-cursor-arrow {
+  pointer-events: none;
+}
+
+/* Give multiline team names and roles room to breathe. */
+.team-single .team-bio {
+  padding-inline: 20px;
+}
+.team-single .team-member-name,
+.team-single:hover .team-member-name {
+  line-height: 1.15;
+  overflow-wrap: break-word;
+}
+.team-single .team-member-designation {
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+@media (max-width: 991px) {
+  .team-single .team-member-name {
+    font-size: 32px;
+  }
+  .team-single:hover .team-member-name {
+    font-size: 28px;
+  }
+  .team-single .team-member-designation {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* Use the same name typography for every team member in every state. */
+.team-single {
+  container-type: inline-size;
+}
+.team-single .team-member-name,
+.team-single:hover .team-member-name {
+  font-size: clamp(16px, 10cqw, 35px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: normal;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
