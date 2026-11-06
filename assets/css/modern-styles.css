@@ -1,0 +1,815 @@
+/*-----------------------------------------------------------------------------------
+    Theme Name: ZenZap
+    Author: Valorwide
+    Support: support@starter.com
+    Description: Starter - Starter HTML5 Template
+    Version: 1.1 - Responsive Update
+-----------------------------------------------------------------------------------*/
+
+/************ TABLE OF CONTENTS ***************
+  01. Theme Default CSS
+  02. Responsive Framework
+  03. Background CSS
+  04. Typography
+  05. Layout & Grid
+  06. Navigation
+  07. Components
+  08. Homepage Sections
+  09. Footer
+**********************************************/
+
+/* ==================== 01. Theme Default CSS ==================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  /* Color Variables */
+  --primary-color: #0b3d2c;
+  --secondary-color: #f1d2a9;
+  --accent-color: #5b2e55;
+  --dark-bg: #131313;
+  --darker-bg: #0a0a0a;
+  --light-bg: #1D1D1D;
+  --text-color: #BBBBBB;
+  --white: #ffffff;
+  --black: #000000;
+  
+  /* Font Variables */
+  --body-font: 'Poppins', sans-serif;
+  --heading-font: 'Roboto', sans-serif;
+  
+  /* Font Sizes */
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-base: 16px;
+  --fs-md: 20px;
+  --fs-lg: 24px;
+  --fs-xl: 28px;
+  --fs-2xl: 32px;
+  --fs-3xl: 40px;
+  --fs-4xl: 48px;
+  --fs-5xl: 60px;
+  --fs-6xl: 72px;
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  
+  /* Breakpoints */
+  --mobile: 576px;
+  --tablet: 768px;
+  --desktop: 992px;
+  --large-desktop: 1200px;
+}
+
+/* ==================== 02. Responsive Framework ==================== */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+/* Responsive column classes */
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+.col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+.col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+.col-md-6 { flex: 0 0 50%; max-width: 50%; }
+.col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+.col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+.col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+.col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+.col-lg-12 { flex: 0 0 100%; max-width: 100%; }
+
+/* ==================== 03. Reset & Base Styles ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--dark-bg);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ==================== 04. Typography ==================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h4 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h5 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h6 { font-size: clamp(1rem, 2vw, 1.5rem); }
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+/* ==================== 05. Buttons ==================== */
+.vw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-family: var(--heading-font);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 8px;
+}
+
+.vw-btn-primary {
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--white);
+}
+
+.vw-btn-primary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.vw-btn-primary i {
+  background-color: var(--accent-color);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background-color 0.3s ease;
+}
+
+.vw-btn-primary:hover i {
+  background-color: var(--white);
+  color: var(--accent-color);
+}
+
+/* ==================== 06. Header & Navigation ==================== */
+.header-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(19, 19, 19, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+}
+
+/* Desktop Menu */
+.mainmenu ul {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.mainmenu ul li a {
+  color: var(--white);
+  font-weight: 500;
+  padding: 10px 0;
+  position: relative;
+}
+
+.mainmenu ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.mainmenu ul li a:hover::after,
+.mainmenu ul li.active a::after {
+  width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 2px;
+  background-color: var(--white);
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu */
+@media (max-width: 991px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .mainmenu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-bg);
+    padding: 20px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .mainmenu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .mainmenu ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .header-area {
+    padding: 15px 0;
+  }
+}
+
+/* ==================== 07. Hero/Banner Section ==================== */
+.banner-area {
+  padding: 150px 0 100px;
+  background-color: var(--dark-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.1;
+  margin-bottom: var(--space-lg);
+}
+
+.banner-title .transparent-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
+
+.banner-subtitle {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 300;
+  margin-bottom: var(--space-lg);
+}
+
+/* ==================== 08. Services Section ==================== */
+.services-section {
+  padding: var(--space-2xl) 0;
+  background-color: var(--darker-bg);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.section-title h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--space-md);
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: var(--space-xl);
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-color);
+  background: rgba(91, 46, 85, 0.1);
+}
+
+.service-icon {
+  font-size: 40px;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* ==================== 09. Portfolio Section ==================== */
+.portfolio-section {
+  padding: var(--space-2xl) 0;
+  background-color: var(--dark-bg);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: var(--space-xl);
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 16/9;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.1);
+}
+
+/* ==================== 10. Testimonials ==================== */
+.testimonials-section {
+  padding: var(--space-2xl) 0;
+  background-color: var(--darker-bg);
+}
+
+.testimonial-slider {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 40px;
+  margin: 0 15px;
+}
+
+.testimonial-content {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: var(--space-lg);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.author-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.author-info h4 {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.author-info p {
+  color: var(--accent-color);
+  margin: 0;
+}
+
+/* ==================== 11. Contact Section ==================== */
+.contact-section {
+  padding: var(--space-2xl) 0;
+  background-color: var(--dark-bg);
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-control {
+  width: 100%;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  color: var(--white);
+  font-size: var(--fs-base);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background: rgba(91, 46, 85, 0.1);
+}
+
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* ==================== 12. Footer ==================== */
+.footer-area {
+  background-color: var(--darker-bg);
+  padding: var(--space-2xl) 0 var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: var(--space-xl);
+}
+
+.footer-logo {
+  margin-bottom: var(--space-lg);
+}
+
+.footer-logo img {
+  height: 80px;
+  width: auto;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: var(--space-lg);
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  font-size: var(--fs-sm);
+}
+
+/* ==================== 13. Responsive Utilities ==================== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+
+@media (max-width: 768px) {
+  .d-md-none { display: none; }
+  .d-md-block { display: block; }
+  .d-md-flex { display: flex; }
+}
+
+@media (max-width: 576px) {
+  .d-sm-none { display: none; }
+  .d-sm-block { display: block; }
+  .d-sm-flex { display: flex; }
+}
+
+/* ==================== 14. Animations ==================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ==================== 15. Custom Cursor ==================== */
+.custom-cursor {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .custom-cursor {
+    display: block;
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, border-color 0.3s;
+  }
+  
+  .custom-cursor.hover {
+    width: 40px;
+    height: 40px;
+    border-color: var(--white);
+    background-color: rgba(91, 46, 85, 0.1);
+  }
+}
+
+/* ==================== 16. Fix for Your Specific Issues ==================== */
+
+/* Fix banner video responsiveness */
+.banner-video {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .banner-video {
+    height: 400px;
+  }
+}
+
+/* Fix service list layout */
+.service-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-list ul li {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .service-list ul li a {
+    font-size: 1.5rem;
+  }
+}
+
+/* Fix testimonial layout */
+.testimonial-slider .swiper-slide {
+  width: 100% !important;
+}
+
+/* Fix portfolio grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* Fix contact form */
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+/* Fix footer on mobile */
+@media (max-width: 768px) {
+  .footer-widgets {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+/* Fix navigation dropdown */
+.has-dropdown {
+  position: relative;
+}
+
+.sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: var(--dark-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.has-dropdown:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.sub-menu li a {
+  display: block;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sub-menu li:last-child a {
+  border-bottom: none;
+}
+
+@media (max-width: 991px) {
+  .has-dropdown .sub-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+    border: none;
+    padding-left: 20px;
+  }
+}
+
+/* ==================== 17. Print Styles ==================== */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    color: #000;
+    background: #fff;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+}

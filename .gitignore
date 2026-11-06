@@ -1,0 +1,3 @@
+# Backup archives; extracted website assets are tracked.
+*.zip
+.DS_Store

@@ -1,0 +1,1344 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QH69VLQFY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QH69VLQFY3');
+</script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <!-- Site Title -->
+    <title>iFILMS</title>
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav-icon.png">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon_garvina.css">
+    <link rel="stylesheet" href="assets/css/icomoon.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/odometer.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <!-- slick css -->
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <!-- slick-theme css -->
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Tabs Navigation */
+        .tabs-container {
+            position: relative;
+        }
+
+        .portfolio-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            border: none;
+            gap: 10px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .nav-item {
+            margin-bottom: 0;
+        }
+
+        .portfolio-tabs .nav-link {
+            background: transparent;
+            border: none;
+            color: #d1d1d1;
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .portfolio-tabs .nav-link i {
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-tabs .nav-link:hover {
+            color: #ffffff;
+            background: rgba(91, 46, 85, 0.1);
+        }
+
+        .portfolio-tabs .nav-link.active {
+            color: #dfb3d9;
+            background: rgba(91, 46, 85, 0.1);
+            border-bottom: 2px solid #5b2e55;
+        }
+
+        .portfolio-tabs .nav-link.active i {
+            color: #5b2e55;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(91, 46, 85, 0.3);
+            border-top-color: #5b2e55;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-spinner p {
+            color: #d1d1d1;
+            font-size: 16px;
+        }
+
+        /* Lightbox Styles */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: #5b2e55;
+            color: #ffffff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: #3d1d38;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(91, 46, 85, 0.8);
+            color: #ffffff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: #5b2e55;
+        }
+
+        .lightbox-prev {
+            left: -70px;
+        }
+
+        .lightbox-next {
+            right: -70px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        /* Responsive Design for Tabs */
+        @media (max-width: 992px) {
+            .portfolio-tabs .nav-link {
+                padding: 12px 20px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .portfolio-tabs .nav-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+
+            .lightbox-close {
+                top: -40px;
+                right: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .portfolio-tabs .nav-link {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body class="use-default-cursor">
+
+    <!-- Preloader Area Start -->
+    <div class="preloader">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="preloaderSvg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+
+        <div class="preloader-heading">
+            <div class="load-text">
+                <span>L</span>
+                <span>o</span>
+                <span>a</span>
+                <span>d</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Area End -->
+
+    <!-- start: Offcanvas Area -->
+    <div id="vw-overlay-bg" class="vw-overlay-canvas"></div>
+    <div class="vw-offcanvas-area">
+        <div class="vw-offcanvas-header d-flex align-items-center justify-content-between">
+            <div class="offcanvas-icon">
+                <a id="canva_close" href="#">
+                    <i class="fa-light fa-xmark"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Canvas Mobile Menu start -->
+        <nav class="right_menu_togle mobile-navbar-menu" id="mobile-navbar-menu"></nav>
+
+        <div class="canvas-content-area d-none d-lg-block">
+            <div class="contact-info-list">
+                <p class="des">
+                    We take a bottom-line approach to each project. Our clients consistently, enhanced brand loyalty
+                    and new leads thanks to our work.
+                </p>
+                <div class="canvas-title">
+                    <h4 class="title">Contact info</h4>
+                </div>
+                <div class="footer-contact">
+                    <ul>
+                        <li><i class="flaticon-location"></i> A-214 Gera imperium gateway, Near Bhosari Metro Station,
+                            Kasarwadi,
+                            Pune, Maharashtra 411034</li>
+                        <li>
+                            <i class="flaticon-open"></i>
+                            <a href="mailto:ifilmsmediapvtltd@gmail.com">ifilmsmediapvtltd@gmail.com </a>
+                            <a href="mailto:infoifilmsmediapvtltd@gmail.com">infoifilmsmediapvtltd@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="flaticon-phone"></i><a href="tel:+918446752571">+91 84467 52571 </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="offcanvas-share">
+                <div class="canvas-title">
+                    <h4 class="title">Social Icons</h4>
+                </div>
+                <ul>
+                    <li><a href="https://in.linkedin.com/company/ifilms-media-productions"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="https://wa.me/918446752571"><i class="fa-brands fa-whatsapp"></i></a></li>
+                    <li><a href="https://www.instagram.com/ifilms_media_productions/"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com/ifilmsmp"><i class="fa-brands fa-facebook-f"></i></a></li>
+                </ul>
+            </div>
+            <div class="contact-map">
+                <iframe
+                    src="https://maps.google.com/maps?q=manhatan&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                    style="border: 0" allowfullscreen=""></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- end: Offcanvas Area -->
+
+    <div class="mainmenu d-none">
+        <nav id="main-menu">
+            <ul class="list-none">
+                <li>
+                    <a href="index.html" title="Media Production Company in Pune | iFILMS Media">Home</a>
+                </li>
+                <li class="has-dropdown">
+                    <a href="services.html" title="Media Production &amp; Creative Services | iFILMS Media">Our Services</a>
+                    <ul class="sub-menu">
+                        <li><a href="production.html" title="Video &amp; Film Production Company in Pune | iFILMS Media">Production</a></li>
+                        <li><a href="celebrity.html" title="Celebrity &amp; Talent Management Agency | iFILMS Media">Talent Management</a></li>
+                        <li><a href="film.html" title="iFILMS">Commercial & Advertising Filmmaking</a></li>
+                        <li><a href="political.html" title="iFILMS">Political Campaign Videos</a></li>
+                        <li><a href="promotion.html" title="iFILMS">Promotional Videos</a></li>
+                        <li><a href="launch.html" title="iFILMS">Launch Events</a></li>
+                        <li><a href="corporate.html" title="Corporate Event Management in Pune | iFILMS Media">Corporate Events</a></li>
+                        <li><a href="celebrity.html" title="Celebrity &amp; Talent Management Agency | iFILMS Media">Celebrity Talent Management</a></li>
+                        <li><a href="contact.html" title="Contact iFILMS Media | Creative Agency in Pune">Sports Events</a></li>
+                        <li><a href="political-events.html" title="iFILMS">Political Events</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="portfolio.html" title="Film Production &amp; Event Portfolio | iFILMS Media">Portfolio</a>
+                </li>
+                <li>
+                    <a href="services.html" title="Media Production &amp; Creative Services | iFILMS Media">Our Services</a>
+                </li>
+                <li><a href="contact.html" title="Contact iFILMS Media | Creative Agency in Pune">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="smooth-scrool-animate" id="smooth-animate"></div>
+    <div id="smooth-page-wrapper">
+        <div id="smooth-page-content">
+            <main id="primary" class="site-main">
+
+                <!--header-area-start-->
+                <header id="header-sticky" class="header-area header-area-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="header-inner">
+                                    <div class="header-left">
+                                        <div class="logo">
+                                            <a href="index.html" title="Media Production Company in Pune | iFILMS Media"><img src="assets/images/logo.png" style="width: 180px;"
+                                                    alt="logo"></a>
+                                        </div>
+                                        <div class="menu-icon">
+                                            <a class="canva_expander nav-menu-link menu-button style-2" href="#"><i
+                                                    class="icon-menu-icon-2"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="mainmenu home__three d-lg-block d-none">
+                                        <nav id="main-menus">
+                                            <ul class="list-none">
+                                                <li>
+                                                    <a href="index.html" title="Media Production Company in Pune | iFILMS Media">Home</a>
+                                                </li>
+                                                <li>
+                                                    <a href="about.html" title="About Us – Creative Production Agency | iFILMS Media">About</a>
+                                                </li>
+                                                <li>
+                                                    <a href="portfolio.html" title="Film Production &amp; Event Portfolio | iFILMS Media">Portfolio</a>
+                                                </li>
+                                                <li class="has-dropdown">
+                                                    <a href="services.html" title="Media Production &amp; Creative Services | iFILMS Media">Our Services</a>
+                                                    <ul class="sub-menu">
+                                                        <!-- 1. Media Production -->
+                                                        <li><a href="production.html" title="Video &amp; Film Production Company in Pune | iFILMS Media">Media Production</a></li>
+
+                                                        <!-- 2. Advertising & Branding -->
+                                                        <li><a href="advertising.html" title="Advertising &amp; Branding Agency in Pune | iFILMS Media">Advertising & Branding</a></li>
+
+                                                        <!-- 3. Digital Marketing -->
+                                                        <li><a href="digital-marketing.html" title="Digital Marketing Agency in Pune | iFILMS Media">Digital Marketing</a></li>
+
+                                                        <!-- 4. Social Media Management -->
+                                                        <li><a href="social-media.html" title="Social Media Management Company in Pune | iFILMS Media">Social Media Management</a></li>
+
+                                                        <!-- 5. Corporate Events -->
+                                                        <li><a href="corporate.html" title="Corporate Event Management in Pune | iFILMS Media">Corporate Events</a></li>
+
+                                                        <!-- 6. Celebrity Talent Management -->
+                                                        <li><a href="celebrity.html" title="Celebrity &amp; Talent Management Agency | iFILMS Media">Celebrity Talent Management</a>
+                                                        </li>
+
+                                                        <!-- 7. Other Services -->
+                                                        <li><a href="other.html" title="3D Visualization &amp; Creative Services | iFILMS Media">Other Services</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="career.html" title="Media Production &amp; Creative Careers | iFILMS Media">Careers</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="header-right">
+                                        <a href="contact.html" class="vw-btn-primary" title="Contact iFILMS Media | Creative Agency in Pune"><i class="icon-arrow-right"></i>
+                                            Get In Touch</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!--header-area-end-->
+
+                <!--page-banner-area start-->
+                <div class="page-banner-area" data-bg-image="assets/images/banner/3.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-banner-title">
+                                    <ul class="breadcrumbs">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li>Portfolio</li>
+                                    </ul>
+                                    <h2 class="page-banner-heading">Portfolio</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--page-banner-area end-->
+
+                <!-- Portfolio Tabs Section Start -->
+                <div class="portfolios__page portfolios-area-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="section-title blog-section-title">
+                                    <h5 class="section-subtitle"><span>OUR WORK</span>
+                                        <img src="assets/images/about/subtitle-line.svg" alt="">
+                                    </h5>
+                                    <h3 class="section-heading">Portfolio <span>Gallery</span></h3>
+                                    <span class="shadow-title">Portfolio</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Tabs Navigation -->
+                        <div class="portfolio-tabs-navigation my-5">
+                            <div class="tabs-container">
+                                <ul class="nav nav-tabs portfolio-tabs" id="portfolioTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="celebrity-tab" data-bs-toggle="tab"
+                                            data-bs-target="#celebrity" type="button" role="tab"
+                                            aria-controls="celebrity" aria-selected="true">
+                                            <span>Celebrity Management</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="political-tab" data-bs-toggle="tab"
+                                            data-bs-target="#political" type="button" role="tab"
+                                            aria-controls="political" aria-selected="false">
+                                            <span>Political Campaigns</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="branding-tab" data-bs-toggle="tab"
+                                            data-bs-target="#branding" type="button" role="tab" aria-controls="branding"
+                                            aria-selected="false">
+                                            <span>Branding</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="shooting-tab" data-bs-toggle="tab"
+                                            data-bs-target="#shooting" type="button" role="tab" aria-controls="shooting"
+                                            aria-selected="false">
+                                            <span>Behind The Scenes</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="corporate-tab" data-bs-toggle="tab"
+                                            data-bs-target="#corporate" type="button" role="tab"
+                                            aria-controls="corporate" aria-selected="false">
+                                            <span>Corporate Events</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Tabs Content -->
+                        <div class="tab-content portfolio-tab-content" id="portfolioTabContent">
+
+                            <!-- Celebrity Management Tab -->
+                            <div class="tab-pane fade show active" id="celebrity" role="tabpanel"
+                                aria-labelledby="celebrity-tab">
+                                <div class="row" id="celebrity-grid" data-folder="celebrity">
+                                    <!-- Images will be loaded dynamically via JavaScript -->
+                                    <div class="col-12 loading-spinner">
+                                        <div class="spinner"></div>
+                                        <p>Loading celebrity portfolio images...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Political Campaigns Tab -->
+                            <div class="tab-pane fade" id="political" role="tabpanel" aria-labelledby="political-tab">
+                                <div class="row" id="political-grid" data-folder="political">
+                                    <div class="col-12 loading-spinner">
+                                        <div class="spinner"></div>
+                                        <p>Loading political campaign images...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Branding Tab -->
+                            <div class="tab-pane fade" id="branding" role="tabpanel" aria-labelledby="branding-tab">
+                                <div class="row" id="branding-grid" data-folder="branding">
+                                    <div class="col-12 loading-spinner">
+                                        <div class="spinner"></div>
+                                        <p>Loading branding portfolio images...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shooting/BTS Tab -->
+                            <div class="tab-pane fade" id="shooting" role="tabpanel" aria-labelledby="shooting-tab">
+                                <div class="row" id="shooting-grid" data-folder="shooting">
+                                    <div class="col-12 loading-spinner">
+                                        <div class="spinner"></div>
+                                        <p>Loading behind the scenes images...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Corporate Events Tab -->
+                            <div class="tab-pane fade" id="corporate" role="tabpanel" aria-labelledby="corporate-tab">
+                                <div class="row" id="corporate-grid" data-folder="corporate">
+                                    <div class="col-12 loading-spinner">
+                                        <div class="spinner"></div>
+                                        <p>Loading corporate events images...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Portfolio Tabs Section End -->
+
+                <!-- Lightbox HTML -->
+                <div class="lightbox-overlay" id="lightbox">
+                    <div class="lightbox-content">
+                        <img class="lightbox-img" src="" alt="">
+                        <button class="lightbox-close" id="lightbox-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="lightbox-nav lightbox-next" id="lightbox-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="lightbox-counter" id="lightbox-counter"></div>
+                    </div>
+                </div>
+
+                <!-- Video Portfolio Section Start -->
+                <div class="portfolio-area portfolio-area-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="section-title blog-section-title">
+                                    <h5 class="section-subtitle"><span>OUR VIDEOS</span>
+                                        <img src="assets/images/about/subtitle-line.svg" alt="">
+                                    </h5>
+                                    <h3 class="section-heading">Our Latest <br /> <span>Creative Productions</span></h3>
+                                    <span class="shadow-title">Portfolio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Video Section -->
+                    <section class="portfolio-section">
+                        <div class="container">
+                            <!-- Section Header -->
+                            <div class="section-header">
+                                <!-- Custom Navigation -->
+                                <div class="portfolio-navigation">
+                                    <div class="swiper-button-prev portfolio-nav-btn">
+                                        <i class="fas fa-chevron-left"></i>
+                                        <span class="nav-label">Prev</span>
+                                    </div>
+
+                                    <div class="swiper-button-next portfolio-nav-btn">
+                                        <i class="fas fa-chevron-right"></i>
+                                        <span class="nav-label">Next</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Portfolio Slider -->
+                            <div class="portfolio-swiper-block mt-5">
+                                <div class="slider-container swiper portfolio-slider">
+                                    <div class="swiper-wrapper">
+
+                                        <!-- Corporate Film -->
+                                        <div class="swiper-slide">
+                                            <div class="portfolio-video-card">
+                                                <div class="video-thumbnail-container">
+                                                    <a href="https://www.youtube.com/watch?v=AcXtZhhKRAo"
+                                                        target="_blank" class="video-thumbnail-link">
+                                                        <img src="https://img.youtube.com/vi/AcXtZhhKRAo/maxresdefault.jpg"
+                                                            alt="iFilms Showreel Thumbnail" class="video-thumbnail">
+                                                        <div class="video-overlay">
+                                                            <div class="play-button">
+                                                                <i class="fas fa-play"></i>
+                                                            </div>
+                                                            <div class="video-duration">3:45</div>
+                                                        </div>
+                                                        <div class="video-category-tag">
+                                                            <span>MEDIA PRODUCTION</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                <div class="portfolio-slider-content">
+                                                    <div class="video-meta">
+                                                        <span class="video-date"><i class="far fa-calendar"></i> Nov
+                                                            2023</span>
+                                                        <span class="video-views"><i class="far fa-eye"></i> 12.5K
+                                                            views</span>
+                                                    </div>
+                                                    <h3 class="video-title">
+                                                        <a href="https://www.youtube.com/watch?v=AcXtZhhKRAo"
+                                                            target="_blank">
+                                                            iFilms Media Production Showreel 2023
+                                                        </a>
+                                                    </h3>
+                                                    <p class="video-description">
+                                                        A comprehensive showcase of our creative journey, highlighting
+                                                        our expertise in storytelling, cinematic production, and visual
+                                                        communication across diverse media formats.
+                                                    </p>
+                                                    <div class="video-cta">
+                                                        <a href="https://www.youtube.com/watch?v=AcXtZhhKRAo"
+                                                            target="_blank" class="watch-btn">
+                                                            <i class="fas fa-play-circle"></i> Watch Now
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Government Inauguration Programs -->
+                                        <div class="swiper-slide">
+                                            <div class="portfolio-video-card">
+                                                <div class="video-thumbnail-container">
+                                                    <a href="https://www.youtube.com/watch?v=PNpp3a-k1-M"
+                                                        target="_blank" class="video-thumbnail-link">
+                                                        <img src="https://img.youtube.com/vi/PNpp3a-k1-M/maxresdefault.jpg"
+                                                            alt="Government Inauguration Thumbnail"
+                                                            class="video-thumbnail">
+                                                        <div class="video-overlay">
+                                                            <div class="play-button">
+                                                                <i class="fas fa-play"></i>
+                                                            </div>
+                                                            <div class="video-duration">8:22</div>
+                                                        </div>
+                                                        <div class="video-category-tag">
+                                                            <span>GOVERNMENT INITIATIVES</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                <div class="portfolio-slider-content">
+                                                    <div class="video-meta">
+                                                        <span class="video-date"><i class="far fa-calendar"></i> Feb
+                                                            2024</span>
+                                                        <span class="video-views"><i class="far fa-eye"></i> 8.2K
+                                                            views</span>
+                                                    </div>
+                                                    <h3 class="video-title">
+                                                        <a href="https://www.youtube.com/watch?v=PNpp3a-k1-M"
+                                                            target="_blank">
+                                                            Government Infrastructure Inauguration Ceremony
+                                                        </a>
+                                                    </h3>
+                                                    <p class="video-description">
+                                                        Documenting significant government initiatives with cinematic
+                                                        precision, capturing historic moments and showcasing public
+                                                        service achievements through compelling visual narratives.
+                                                    </p>
+                                                    <div class="video-cta">
+                                                        <a href="https://www.youtube.com/watch?v=PNpp3a-k1-M"
+                                                            target="_blank" class="watch-btn">
+                                                            <i class="fas fa-play-circle"></i> Watch Now
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Event Highlight -->
+                                        <div class="swiper-slide">
+                                            <div class="portfolio-video-card">
+                                                <div class="video-thumbnail-container">
+                                                    <a href="https://www.youtube.com/watch?v=j1JySFHhljg"
+                                                        target="_blank" class="video-thumbnail-link">
+                                                        <img src="https://img.youtube.com/vi/j1JySFHhljg/maxresdefault.jpg"
+                                                            alt="Corporate Filming Thumbnail" class="video-thumbnail">
+                                                        <div class="video-overlay">
+                                                            <div class="play-button">
+                                                                <i class="fas fa-play"></i>
+                                                            </div>
+                                                            <div class="video-duration">5:18</div>
+                                                        </div>
+                                                        <div class="video-category-tag">
+                                                            <span>CORPORATE FILMING</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                <div class="portfolio-slider-content">
+                                                    <div class="video-meta">
+                                                        <span class="video-date"><i class="far fa-calendar"></i> Jan
+                                                            2024</span>
+                                                        <span class="video-views"><i class="far fa-eye"></i> 15.7K
+                                                            views</span>
+                                                    </div>
+                                                    <h3 class="video-title">
+                                                        <a href="https://www.youtube.com/watch?v=j1JySFHhljg"
+                                                            target="_blank">
+                                                            The Power of Corporate Storytelling & Brand Films
+                                                        </a>
+                                                    </h3>
+                                                    <p class="video-description">
+                                                        Exploring how strategic corporate films enhance brand
+                                                        credibility, engage stakeholders, and communicate complex
+                                                        messages through compelling visual narratives and emotional
+                                                        storytelling.
+                                                    </p>
+                                                    <div class="video-cta">
+                                                        <a href="https://www.youtube.com/watch?v=j1JySFHhljg"
+                                                            target="_blank" class="watch-btn">
+                                                            <i class="fas fa-play-circle"></i> Watch Now
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Portfolio Video Section End -->
+                </div>
+                <!-- Video Portfolio Section End -->
+
+
+                <!--contact-area start-->
+                <div class="contact-area imageParallax" data-bg-image="assets/images/contact/1.jpg"
+                    style="background-size: cover;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="contact-headings">
+                                    <h2 class="heading-contact">Your Next Big Idea Starts Here</h2>
+                                    <h3 class="subheading-contact">Focused In touch</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="portfolio-more-btn contact-arrow-btn">
+                                    <a href="contact.html"><i class="icon-arrow-tera"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--contact-area end-->
+
+            </main>
+
+            <!--footer start-->
+            <footer class="footer-area footer-area-2">
+                <div class="container">
+                    <!-- Decorative top border -->
+                    <div class="footer-top-border">
+                        <div class="border-gradient"></div>
+                    </div>
+
+                    <!-- Main footer content -->
+                    <div class="footer-top">
+                        <div class="row">
+
+                            <!-- Brand & Social Column -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="footer-brand-section">
+                                    <div class="footer-logo">
+                                        <img src="assets/images/logo.png" alt="iFilms Media">
+                                    </div>
+                                    <div class="footer-tagline">
+                                        <p>Transforming visions into compelling visual stories that captivate and
+                                            inspire.</p>
+                                    </div>
+                                    <div class="footer-social-section">
+                                        <h4 class="footer-widget-title">Connect With Us</h4>
+                                        <ul class="footer-social">
+                                            <li class="social-item">
+                                                <a href="https://in.linkedin.com/company/ifilms-media-productions"
+                                                    class="social-link linkedin" aria-label="LinkedIn">
+                                                    <i class="fa-brands fa-linkedin"></i>
+                                                    <span class="social-label">LinkedIn</span>
+                                                </a>
+                                            </li>
+                                            <li class="social-item">
+                                                <a href="https://www.instagram.com/ifilms_media_productions/"
+                                                    class="social-link instagram" aria-label="Instagram">
+                                                    <i class="fa-brands fa-instagram"></i>
+                                                    <span class="social-label">Instagram</span>
+                                                </a>
+                                            </li>
+                                            <li class="social-item">
+                                                <a href="https://www.youtube.com/@ifilmsmediaproductions7584"
+                                                    class="social-link youtube" aria-label="YouTube">
+                                                    <i class="fa-brands fa-youtube"></i>
+                                                    <span class="social-label">YouTube</span>
+                                                </a>
+                                            </li>
+                                            <li class="social-item">
+                                                <a href="https://www.facebook.com/ifilmsmp" class="social-link facebook"
+                                                    aria-label="Facebook">
+                                                    <i class="fa-brands fa-facebook-f"></i>
+                                                    <span class="social-label">Facebook</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Navigation & Contact Column -->
+                            <div class="col-lg-8 col-md-6">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="footer-widget">
+                                            <h4 class="footer-widget-title">Navigation</h4>
+                                            <ul class="footer-widget-menu">
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="services.html">Our Services</a></li>
+                                                <li><a href="career.html">Career</a></li>
+                                                <li><a href="contact.html">Contact Us</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-6">
+                                        <div class="footer-widget">
+                                            <h4 class="footer-widget-title">Contact</h4>
+                                            <ul class="footer-contact-list">
+                                                <li><span class="contact-label"></span> <span class="contact-info">A-214
+                                                        Gera
+                                                        imperium gateway,
+                                                        Near Bhosari Metro Station, Kasarwadi, Pune, Maharashtra
+                                                        411034</span>
+                                                </li>
+                                                <li><span class="contact-label"></span> <span class="contact-info">+91
+                                                        84467
+                                                        52571</span></li>
+                                                <li><span class="contact-label"></span> <span
+                                                        class="contact-info">ifilmsmediapvtltd@gmail.com</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="footer-widget">
+                                            <h4 class="footer-widget-title">Subscribe Now</h4>
+                                            <div class="footer-subscribe">
+                                                <p>Subscribe to stay updated! We welcome your inquiries and are here to
+                                                    assist
+                                                    you with any
+                                                    questions. </p>
+                                            </div>
+                                            <div class="footer-subscribe-form">
+                                                <form action="#">
+                                                    <input type="email" placeholder="Your Email..." id="emails"
+                                                        required="">
+                                                    <button class="subscribe_button" type="submit"><i
+                                                            class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Footer bottom -->
+                    <div class="footer-bottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="footer-copyright">
+                                        <p>2025 &copy; All Right Reserved by <a
+                                                href="https://goldsquirrelstudio.com/">Gold Squirrel
+                                                Studio</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--footer-end-->
+
+        </div>
+    </div>
+    <!-- start: Scroll Area -->
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="
+                    transition: stroke-dashoffset 10ms linear 0s;
+                    stroke-dasharray: 307.919px, 307.919px;
+                    stroke-dashoffset: 71.1186px;
+                "></path>
+        </svg>
+        <div class="scroll-top-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"
+                viewBox="0 0 24 24" data-icon="mdi:arrow-up" class="iconify iconify--mdi">
+                <path fill="currentColor" d="M13 20h-2V8l-5.5 5.5l-1.42-1.42L12 4.16l7.92 7.92l-1.42 1.42L13 8v12Z">
+                </path>
+            </svg>
+        </div>
+    </div>
+    <!-- end: Scroll Area -->
+
+    <!--================================
+      CURSOR START
+  =================================-->
+    <div id="magic-cursor">
+        <div id="ball"></div>
+    </div>
+    <!--================================
+      CURSOR END
+  =================================-->
+
+    <!-- JS here -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/jquery-migrate-3.5.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/appear.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/meanmenu.js"></script>
+    <script src="assets/js/lenis.min.js"></script>
+
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!---slick-js-->
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Portfolio Image Management System
+        document.addEventListener('DOMContentLoaded', function () {
+            const portfolioTabs = {
+                celebrity: 'assets/images/portfolio/celebrity',
+                political: 'assets/images/portfolio/political',
+                branding: 'assets/images/portfolio/branding',
+                shooting: 'assets/images/portfolio/shooting',
+                corporate: 'assets/images/portfolio/corporate'
+            };
+
+            const imageCache = {};
+            let currentImages = [];
+            let currentIndex = 0;
+
+            // Initialize Bootstrap tabs
+            const tabEls = document.querySelectorAll('button[data-bs-toggle="tab"]');
+            tabEls.forEach(tabEl => {
+                tabEl.addEventListener('shown.bs.tab', event => {
+                    const targetId = event.target.getAttribute('data-bs-target').replace('#', '');
+                    loadPortfolioImages(targetId);
+                });
+            });
+
+            // Load first tab images by default
+            loadPortfolioImages('celebrity');
+
+            // Function to load portfolio images
+            async function loadPortfolioImages(category) {
+                const gridElement = document.getElementById(`${category}-grid`);
+                const folderPath = portfolioTabs[category];
+
+                if (!gridElement) return;
+
+                // Show loading state
+                gridElement.innerHTML = `
+                <div class="col-12 loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading ${category} portfolio images...</p>
+                </div>
+            `;
+
+                try {
+                    // Check cache first
+                    if (imageCache[category]) {
+                        renderPortfolioGrid(gridElement, imageCache[category], category);
+                        return;
+                    }
+
+                    // Get actual image files from server
+                    const imageFiles = await getImageFiles(category, folderPath);
+                    imageCache[category] = imageFiles;
+
+                    renderPortfolioGrid(gridElement, imageFiles, category);
+
+                } catch (error) {
+                    console.error('Error loading images:', error);
+                    gridElement.innerHTML = `
+                    <div class="col-12 loading-spinner">
+                        <p>Unable to load images. Please try again later.</p>
+                    </div>
+                `;
+                }
+            }
+
+            // Get image files from folder
+            async function getImageFiles(category, folderPath) {
+                return new Promise(resolve => {
+                    // In production, you would make an API call to get the list of files
+                    // For now, we'll simulate loading all available images
+
+                    // Create an array of image promises
+                    const imagePromises = [];
+                    const images = [];
+
+                    // Try to load images until we get an error (file not found)
+                    function tryLoadImage(number) {
+                        return new Promise((resolveImage, rejectImage) => {
+                            const img = new Image();
+                            img.onload = function () {
+                                images.push({
+                                    src: `${folderPath}/${number}.webp`,
+                                    alt: `${category.charAt(0).toUpperCase() + category.slice(1)} Project ${number}`,
+                                    number: number
+                                });
+                                resolveImage(true);
+                            };
+                            img.onerror = function () {
+                                // Image not found, stop trying
+                                resolveImage(false);
+                            };
+                            img.src = `${folderPath}/${number}.webp`;
+                        });
+                    }
+
+                    // Function to sequentially try loading images
+                    async function loadAllImages() {
+                        let number = 1;
+                        let foundImage = true;
+
+                        while (foundImage && number <= 50) { // Limit to 50 images max per category
+                            foundImage = await tryLoadImage(number);
+                            if (foundImage) {
+                                number++;
+                            }
+                        }
+
+                        resolve(images);
+                    }
+
+                    // Start loading images
+                    setTimeout(() => {
+                        loadAllImages();
+                    }, 300);
+                });
+            }
+
+            // Render portfolio grid in your existing style
+            function renderPortfolioGrid(gridElement, images, category) {
+                if (!images || images.length === 0) {
+                    gridElement.innerHTML = `
+                    <div class="col-12 loading-spinner">
+                        <p>No images found in ${category} portfolio.</p>
+                    </div>
+                `;
+                    return;
+                }
+
+                let gridHTML = '';
+
+                images.forEach((image, index) => {
+                    // Alternate between imageParallax2 and imageParallax3 classes
+                    const parallaxClass = (index % 2 === 0) ? 'imageParallax2' : 'imageParallax3';
+
+                    gridHTML += `
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-portfolio">
+                            <div class="single-portoflio-thumb ${parallaxClass}">
+                                <a href="#" class="portfolio-image-link" data-category="${category}" data-index="${index}">
+                                    <img src="${image.src}" alt="${image.alt}" loading="lazy">
+                                </a>
+                            </div>
+                            <span class="portfolio-number">${image.number}</span>
+                        </div>
+                    </div>
+                `;
+                });
+
+                gridElement.innerHTML = gridHTML;
+
+                // Add click event to portfolio items
+                gridElement.querySelectorAll('.portfolio-image-link').forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const category = this.getAttribute('data-category');
+                        const index = parseInt(this.getAttribute('data-index'));
+                        openLightbox(category, index);
+                    });
+                });
+            }
+
+            // Lightbox functionality
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+
+            function openLightbox(category, index) {
+                currentImages = imageCache[category] || [];
+                currentIndex = index;
+
+                if (currentImages.length === 0) return;
+
+                updateLightboxImage();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function updateLightboxImage() {
+                if (currentImages[currentIndex]) {
+                    lightboxImg.src = currentImages[currentIndex].src;
+                    lightboxImg.alt = currentImages[currentIndex].alt;
+                    lightboxCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+                }
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function nextImage() {
+                if (currentImages.length === 0) return;
+                currentIndex = (currentIndex + 1) % currentImages.length;
+                updateLightboxImage();
+            }
+
+            function prevImage() {
+                if (currentImages.length === 0) return;
+                currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+                updateLightboxImage();
+            }
+
+            // Event listeners for lightbox
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxNext.addEventListener('click', nextImage);
+            lightboxPrev.addEventListener('click', prevImage);
+
+            // Close lightbox on overlay click
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (!lightbox.classList.contains('active')) return;
+
+                switch (e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        prevImage();
+                        break;
+                    case 'ArrowRight':
+                        nextImage();
+                        break;
+                }
+            });
+
+            // Initialize Swiper for video portfolio
+            const portfolioSwiper = new Swiper('.portfolio-slider', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                speed: 800,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 1.5,
+                    },
+                    992: {
+                        slidesPerView: 1.8,
+                    },
+                    1200: {
+                        slidesPerView: 2.2,
+                    },
+                }
+            });
+
+            // Add click handlers for custom navigation buttons
+            document.querySelectorAll('.portfolio-nav-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (this.classList.contains('swiper-button-next')) {
+                        portfolioSwiper.slideNext();
+                    } else if (this.classList.contains('swiper-button-prev')) {
+                        portfolioSwiper.slidePrev();
+                    }
+                });
+            });
+
+            // Preload other tabs in background
+            function preloadOtherTabs() {
+                Object.keys(portfolioTabs).forEach(category => {
+                    if (category !== 'celebrity' && !imageCache[category]) {
+                        setTimeout(() => {
+                            loadPortfolioImages(category);
+                        }, 1000);
+                    }
+                });
+            }
+
+            // Start preloading after page load
+            setTimeout(preloadOtherTabs, 2000);
+        });
+    </script>
+
+
+
+    <script>
+        // Smooth cursor following + hover detection
+        const arrow = document.querySelector('.custom-cursor-arrow');
+        let mouseX = 0, mouseY = 0;
+        let arrowX = 0, arrowY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Hover detection
+        const interactiveElements = document.querySelectorAll(
+            'a, button, input, textarea, [role="button"], .vw-btn-primary, ' +
+            '.portfolio-video-card, .play-button, .watch-btn, .team-single, ' +
+            '.single-portfolio, [href], .clickable'
+        );
+
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+        });
+
+        function animateCursor() {
+            arrowX += (mouseX - arrowX) * 0.16; // smooth follow
+            arrowY += (mouseY - arrowY) * 0.16;
+
+            arrow.style.left = `${arrowX}px`;
+            arrow.style.top = `${arrowY}px`;
+
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+    </script>
+
+</body>
+
+</html>
