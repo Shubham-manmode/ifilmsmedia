@@ -9130,3 +9130,9 @@ body.use-default-cursor * {
 
 
 /* end of my css */
+/* Keep event photographs proportional within the portfolio grid. */
+.event-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
