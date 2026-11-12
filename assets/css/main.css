@@ -7452,7 +7452,7 @@ only screen and (min-width: 576px) and (max-width: 767px),
 }
 
 .testimonial_slider .swiper-slide {
-  width: 370px;
+  min-width: 0;
   max-width: 100%;
   height: auto;
   padding-inline: 8px;
